@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomeScreen from "./components/Home";
 import "./App.css";
+import ProductScreen from "./components/ProductScreen";
+import CartScreen from "./components/CartScreen";
 
 const App = () => {
   // The back-to-top button is hidden at the beginning
@@ -27,7 +29,11 @@ const App = () => {
   return (
     <div>
       <Router>
-        <HomeScreen />
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/product/:id" element={<ProductScreen />} />
+          <Route path="/cart" element={<CartScreen />} />
+        </Routes>
       </Router>
       <>
         {/* React Fragment */}
